@@ -17,7 +17,7 @@ def binary_to_ip(binary_num):
     ip_address_sep = []
     #Converting binary octates to integer numbers
     for octet in ip_octets:
-        ip_address.append(str(int(octet, 2)))
+        ip_address_sep.append(str(int(octet, 2)))
 
     #Adding '.' between two integers to get IP Address Form
     ip_address = ".".join(ip_address_sep)
@@ -141,12 +141,12 @@ def subnet_calculator():
 
                 #Obtain available IP address in range ,based on the difference between octets of
                 #broadcast address and network address(Algorithm to calculate the ramdom IP Adress)
-                for idx_bst, oct_bst in enumerate(network_ip_address[1]):
-                    for idx_net, oct_net in enumerate(broadcast_ip_address[1]):
+                for idx_bst, oct_bst in enumerate(broadcast_ip_address[1]):
+                    for idx_net, oct_net in enumerate(network_ip_address[1]):
                         if idx_net == idx_bst:
                             if oct_bst == oct_net:
                                 #Adds identical octets to the generated ip list
-                                generated_ip.appa()
+                                generated_ip.append(oct_bst)
                             else:
                                 #Generate random number between network octet and broadcast octet(when the octets are different)
                                 generated_ip.append(str(random.randint(int(oct_net), int(oct_bst))))
